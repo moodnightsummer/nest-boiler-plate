@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ApiController } from './api.controller';
 import { ApiService } from './api.service';
-import { ConfigModule } from '@nestjs/config';
-import { UserModule } from 'libs/src/entity/user/user.module';
-import { UserRepository } from 'libs/src/entity/user/user.Repository';
-import { isTypeOrmModule } from 'libs/src/entity/typeOrm.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { UserModule } from '@app/entity/user/user.module';
+import { UserRepository } from '@app/entity/user/user.Repository';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { getTypeOrmModuleOptions } from 'libs/entity/typeOrm.module';
 
 @Module({
   imports: [
@@ -14,7 +15,12 @@ import { isTypeOrmModule } from 'libs/src/entity/typeOrm.module';
       envFilePath: `env/${process.env.NODE_ENV}.env`
     }),
     UserModule,
-    isTypeOrmModule()
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) =>
+        getTypeOrmModuleOptions(configService), // 변경된 부분
+      inject: [ConfigService]
+    })
   ],
   controllers: [ApiController],
   providers: [ApiService, UserRepository]
