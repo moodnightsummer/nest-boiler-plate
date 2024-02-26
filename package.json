@@ -80,9 +80,6 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^entity/entity(|/.*)$": "<rootDir>/libs/entity/src/$1",
-      "^@app/config(|/.*)$": "<rootDir>/libs/config/src/$1",
-      "^@app/database(|/.*)$": "<rootDir>/libs/database/src/$1",
       "^@app/entity(|/.*)$": "<rootDir>/libs/entity/src/$1",
       "^@app/utils(|/.*)$": "<rootDir>/libs/utils/src/$1"
     }
