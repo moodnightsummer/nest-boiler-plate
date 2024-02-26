@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ApiController } from './api.controller';
 import { ApiService } from './api.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -6,6 +6,7 @@ import { UserModule } from '@app/entity/user/user.module';
 import { UserRepository } from '@app/entity/user/user.Repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeOrmModuleOptions } from 'libs/entity/typeOrm.module';
+import { LoggerMiddleware } from '@app/middleware/logger.middleware';
 
 @Module({
   imports: [
@@ -25,4 +26,8 @@ import { getTypeOrmModuleOptions } from 'libs/entity/typeOrm.module';
   controllers: [ApiController],
   providers: [ApiService, UserRepository]
 })
-export class ApiModule {}
+export class ApiModule implements NestModule {
+  configure(consumer: MiddlewareConsumer): any {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
