@@ -24,6 +24,7 @@ import { CommonInterceptor } from '@app/config/common.interceptor';
   ],
   providers: [
     {
+      // 글로벌 인터셉터 구현
       provide: 'APP_INTERCEPTOR',
       useClass: CommonInterceptor
     }
