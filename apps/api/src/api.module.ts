@@ -1,11 +1,10 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { ApiController } from './api.controller';
-import { ApiService } from './api.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeOrmModuleOptions } from 'libs/entity/typeOrm.module';
 import { LoggerMiddleware } from '@app/middleware/logger.middleware';
 import { UserApiModule } from './user/userApi.module';
+import { CommonInterceptor } from '@app/config/common.interceptor';
 
 @Module({
   imports: [
@@ -22,6 +21,12 @@ import { UserApiModule } from './user/userApi.module';
     }),
 
     UserApiModule
+  ],
+  providers: [
+    {
+      provide: 'APP_INTERCEPTOR',
+      useClass: CommonInterceptor
+    }
   ]
 })
 export class ApiModule implements NestModule {
