@@ -2,6 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { User } from './src/user/user.entity';
+import { UserInfo } from './userInfo/userInfo.entity';
 
 export function getTypeOrmModuleOptions(
   configService: ConfigService
@@ -13,7 +14,7 @@ export function getTypeOrmModuleOptions(
     username: configService.get('MYSQL_USER'),
     password: configService.get('MYSQL_PASSWORD'),
     database: configService.get('MYSQL_DB'),
-    entities: [User],
+    entities: [User, UserInfo],
     synchronize: false,
     logging: false,
     namingStrategy: new SnakeNamingStrategy()
