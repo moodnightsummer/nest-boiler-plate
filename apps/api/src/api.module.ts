@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeOrmModuleOptions } from 'libs/entity/typeOrm.module';
 import { LoggerMiddleware } from '@app/middleware/logger.middleware';
 import { UserApiModule } from './user/userApi.module';
-import { CommonInterceptor } from '@app/config/common.interceptor';
+import { CommonInterceptor } from '@app/interceptor/common.interceptor';
 
 @Module({
   imports: [

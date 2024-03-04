@@ -72,6 +72,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/api/user/tsconfig.app.json"
       }
+    },
+    "interceptor": {
+      "type": "library",
+      "root": "libs/interceptor",
+      "entryFile": "index",
+      "sourceRoot": "libs/interceptor/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/interceptor/tsconfig.lib.json"
+      }
     }
   }
 }

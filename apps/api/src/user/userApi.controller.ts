@@ -2,7 +2,7 @@ import { Controller, Get, UseInterceptors } from '@nestjs/common';
 import { UserApiService } from './userApi.service';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserShowDto } from './dto/userShowDto';
-import { UserInterceptor } from '@app/config/user.interceptor';
+import { UserInterceptor } from '@app/interceptor/user.interceptor';
 
 // user 개별 인터셉터 추가
 @UseInterceptors(UserInterceptor)

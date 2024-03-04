@@ -87,7 +87,8 @@
       "^@app/entity(|/.*)$": "<rootDir>/libs/entity/src/$1",
       "^@app/utils(|/.*)$": "<rootDir>/libs/utils/src/$1",
       "^@app/middleware(|/.*)$": "<rootDir>/libs/middleware/src/$1",
-      "^@app/config(|/.*)$": "<rootDir>/libs/config/src/$1"
+      "^@app/config(|/.*)$": "<rootDir>/libs/config/src/$1",
+      "^@app/interceptor(|/.*)$": "<rootDir>/libs/interceptor/src/$1"
     }
   }
 }
