@@ -9,7 +9,7 @@ export class UserRepository {
     private userRepo: Repository<User>
   ) {}
 
-  async findUserName(userId: number): Promise<any> {
+  async findUserName(userId: number): Promise<User> {
     const result = await this.userRepo.findOne({ where: { id: userId } });
 
     return result;
