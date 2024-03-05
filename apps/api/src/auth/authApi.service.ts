@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserInfoRepository } from 'libs/entity/userInfo/userInfo.repository';
+import { UserInfoRepository } from '@app/entity/userInfo/userInfo.repository';
 
 @Injectable()
 export class AuthApiService {

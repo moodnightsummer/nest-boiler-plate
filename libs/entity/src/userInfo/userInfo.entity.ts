@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
-import { User } from '../src/user/user.entity';
+import { User } from '../user/user.entity';
 
 @Index('user_info_FK', ['userId'], {})
 @Entity('user_info', { schema: 'learn' })

@@ -1,4 +1,4 @@
-import { UserInfo } from 'libs/entity/userInfo/userInfo.entity';
+import { UserInfo } from '@app/entity/userInfo/userInfo.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
