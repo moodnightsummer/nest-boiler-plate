@@ -3,7 +3,6 @@ import { Injectable } from '@nestjs/common';
 import { UserShowDto } from './dto/userShowDto';
 import { HashUtil } from '@app/utils';
 import { UserInfoRepository } from '@app/entity/userInfo/userInfo.repository';
-import { log } from 'console';
 
 @Injectable()
 export class UserApiService {

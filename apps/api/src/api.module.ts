@@ -5,6 +5,7 @@ import { getTypeOrmModuleOptions } from 'libs/entity/typeOrm.module';
 import { LoggerMiddleware } from '@app/middleware/logger.middleware';
 import { UserApiModule } from './user/userApi.module';
 import { CommonInterceptor } from '@app/interceptor/common.interceptor';
+import { AuthApiModule } from './auth/authApi.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { CommonInterceptor } from '@app/interceptor/common.interceptor';
       inject: [ConfigService]
     }),
 
-    UserApiModule
+    UserApiModule,
+    AuthApiModule
   ],
   providers: [
     {

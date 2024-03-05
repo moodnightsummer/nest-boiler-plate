@@ -4,7 +4,6 @@ import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserShowDto } from './dto/userShowDto';
 import { UserInterceptor } from '@app/interceptor/user.interceptor';
 import { CreateUserDto } from './dto/createUserDto';
-import { HashUtil } from '@app/utils/hash.util';
 
 // user 개별 인터셉터 추가
 @UseInterceptors(UserInterceptor)

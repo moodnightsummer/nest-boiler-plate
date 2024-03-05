@@ -40,4 +40,13 @@ export class UserInfoRepository {
       ])
       .execute();
   }
+
+  async findUserPassword(userEmail: string): Promise<string> {
+    const result = await this.userInfoRepo
+      .createQueryBuilder('userInfo')
+      .where('userInfo.email = :email', { email: userEmail })
+      .getOne();
+
+    return result.password;
+  }
 }
