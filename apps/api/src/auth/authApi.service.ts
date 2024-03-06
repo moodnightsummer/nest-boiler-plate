@@ -28,6 +28,7 @@ export class AuthApiService {
       loginForm.email
     );
 
+    // 평문 비밀번호를 hash 비밀번호와 대조
     const isVaild = await HashUtil.isHashVaild(
       loginForm.password,
       realPassword
